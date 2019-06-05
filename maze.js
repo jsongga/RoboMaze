@@ -490,7 +490,7 @@ mouse.moveCount = function() {
 // Resets mouse memory and returns it home.
 if (typeof mouse.reset !== 'function') {
 mouse.reset = function() {
-
+        drawMaze()
 	if (driver.load) {
 		driver.load();
 	}
@@ -529,7 +529,7 @@ mouse.loadDriver = function(driverp) {
 		//mouse.memClear(); // clear the mouses memory.
 		mouse.reset();
 
-		return true;
+ 		return true;
 	} else {
 		return false;
 	}
@@ -1095,11 +1095,12 @@ function rads(degrees) {
 
 function eraseMouse() {
 	var px, py;
-
 	px = pMouseX - (pCellWidth-2)/2;
 	py = pMouseY - (pCellHeight-2)/2;
-
-	ctx.clearRect(px,py,pCellWidth-3, pCellHeight-3);
+        ctx.clearRect(px,py,pCellWidth-3, pCellHeight-3);
+        ctx.fillStyle = "#0000FF";
+        ctx.fillRect(px,py,pCellWidth-3, pCellHeight-3);
+        ctx.fillStyle = "#000000";
 	//ctx.strokeStyle = "#000";
 	//ctx.stroke();
 
