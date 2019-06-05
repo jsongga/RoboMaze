@@ -37,7 +37,7 @@ Online Demo
 
 There is an online demo running at 
 
-[https://github.com/IntelligentDots/Micromouse/settings](https://github.com/IntelligentDots/Micromouse/settings)
+[https://intelligentdots.github.io/Micromouse/](https://intelligentdots.github.io/Micromouse/)
 
 Download and run locally
 ------------------------
