@@ -1098,7 +1098,7 @@ function eraseMouse() {
 	px = pMouseX - (pCellWidth-2)/2;
 	py = pMouseY - (pCellHeight-2)/2;
         ctx.clearRect(px,py,pCellWidth-3, pCellHeight-3);
-        ctx.fillStyle = "#0000FF";
+        ctx.fillStyle = "#FF0000";
         ctx.fillRect(px,py,pCellWidth-3, pCellHeight-3);
         ctx.fillStyle = "#000000";
 	//ctx.strokeStyle = "#000";
