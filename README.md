@@ -37,14 +37,14 @@ Online Demo
 
 There is an online demo running at 
 
-[http://Johnsong12.github.com/Micromouse](http://Johnsong12.github.com/Micromouse)
+[https://github.com/IntelligentDots/Micromouse/settings](https://github.com/IntelligentDots/Micromouse/settings)
 
 Download and run locally
 ------------------------
 
 You can download the latest source via
 
-	git clone https://bblodget@github.com/bblodget/MicromouseSim.git
+	git clone https://github.com/IntelligentDots/Micromouse.git
 
 Open the file MicromouseSim/index.html in Firefox or Safari.
 Chrome's security model won't allow this application run
@@ -67,8 +67,7 @@ You should have received a copy of the GNU General Public
 License along with this program.  If not, see
 [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/)
 
-enjoy,
+Acknowledgement
+-------
 
-Brandon Blodget <blodget.sw@gmail.com>
-
-
+This code was built on the micromouse simulator by Brandon Blodget at https://github.com/bblodget/MicromouseSim.
