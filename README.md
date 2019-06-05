@@ -37,7 +37,7 @@ Online Demo
 
 There is an online demo running at 
 
-[http://bblodget.github.com/MicromouseSim](http://bblodget.github.com/MicromouseSim)
+[http://Johnsong12.github.com/Micromouse](http://Johnsong12.github.com/Micromouse)
 
 Download and run locally
 ------------------------
