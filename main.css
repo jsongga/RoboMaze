@@ -1,0 +1,67 @@
+
+.small_link {
+	font-weight: normal;
+	font-size: .5em;
+	float:right;
+}
+
+.heading {
+	font-weight: bold;
+	font-size: 20;
+	float:left;
+}
+
+.select {
+	float:right;
+}
+
+canvas#maze {
+	border : inset;
+	width: 100%;
+}
+
+#maze_div {
+	// border:4px solid#dfd;
+	float:left;
+	width: 45%;
+}
+
+#driver_div {
+	// border:4px solid#dfd;
+	float:right;
+	width: 45%;
+}
+
+#driver_code {
+	width: 100%;
+	height: 100%;
+}
+
+
+
+#code_controls_div {
+	float:none;
+	text-align: center;
+	padding: 20px;
+}
+
+#maze_controls_div {
+	float:left;
+	text-align: left;
+	padding: 20px;
+}
+
+#slider_left {
+	float:none;
+	width: 70%;
+	padding: 20px;
+}
+
+#slider_right {
+	display: inline;
+	float:right;
+	text-align: center;
+	width: 18%;
+	padding: 10px;
+}
+
