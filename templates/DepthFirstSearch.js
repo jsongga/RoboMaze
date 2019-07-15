@@ -3,7 +3,6 @@
 // clear the driver object.
 driver = {};
 mouseLog = [];
-mouse.memPrintMaze();
 // Gets called only when downloaded to the mouse
 // Performs initialization
 driver.load = function() {
@@ -15,7 +14,7 @@ driver.load = function() {
 // Figure out next move.
 // Gets called each iteration of the simulator.
 driver.next = function() {
-    mouse.memSetData("1");
+    //mouse.memSetData("1");
 //    console.info(mouseLog)
     if (mouse.isPathLeft() && mouse.memGetVisitedLeft() == false) {
         mouse.left();
@@ -55,9 +54,10 @@ driver.next = function() {
 
 
     }//end else
-    if (mouse.isHome()) {
-        mouse.memPrintData();
-        mouse.memPrintMaze();
+    if (allIsHome()) {
+        //mouse.memPrintData();
+        //mouse.memPrintMaze();
+        stop();
         return;
     };
 

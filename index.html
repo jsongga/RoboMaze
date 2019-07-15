@@ -1,6 +1,7 @@
 <html>
 
 <head>
+	<meta charset="utf-8"/>
 	<title>Micromouse Simulator</title>
 
 	<link type="text/css" href="jquery-ui-1.8.12.custom.css" rel="stylesheet" />	
@@ -25,7 +26,7 @@
 
 <body>
 
-<h2>Micromouse Simulator <a class="small_link" href="https://github.com/IntelligentDots/Micromouse">Source on GitHub</a></h2>
+<h2>Micromouse Simulator <a class="small_link" href="https://github.com/bblodget">Source on GitHub</a></h2>
 
 
 <div id="maze_div">
@@ -133,11 +134,11 @@ Speed <div id="slider"></div>
 <div class="select">
 <label for="driver_sel">(<a href="https://github.com/bblodget/MicromouseSim/wiki/Mouse-API">Mouse API</a>)</label>
 <select name="driver_sel" id="driver_sel">
-  <option value="right_wall">Right Wall Follower</option>
-  <option value="left_wall">Left Wall Follower</option>
-  <option value="flood_fill">Flood Fill</option>
-  <option value="DepthFirstSearch" selected="selected">DFS</option>
-  <option value="blank">Blank Template</option>
+	<option value="blank">Blank</option>
+	<option value="right_wall">Right Wall Follower</option>
+	<option value="left_wall">Left Wall Follower</option>
+    <option value="flood_fill">Flood Fill</option>
+	<option value="DepthFirstSearch" selected="selected">Depth First Search</option>
 </select>
 </div>
 
@@ -195,7 +196,7 @@ jQuery(function() {
 			var code = $("#driver_code").val();
 			if ($('#start_stop').html() === 'Download') {
 				jQuery.globalEval(code);
-				mouse.loadDriver(driver);
+				loadDriver(driver);
 				$("#download").html("Download and Reset Mouse");
 				$("#home").attr("disabled","");
 				$("#start_stop").attr("disabled","");
@@ -205,11 +206,11 @@ jQuery(function() {
 				return;
 			}
 			if ($('#start_stop').html() === 'Start') {
-				mouse.start();
+				start();
 				$('#start_stop').html('Stop');
 
 			} else {
-				mouse.stop();
+				stop();
 				$('#start_stop').html('Start');
 			}
 		}
@@ -217,7 +218,7 @@ jQuery(function() {
 
 	$('#maze_sel').change(
 		function(event) {
-			mouse.loadMaze($('#maze_sel option:selected').text());
+			drawMaze($('#maze_sel option:selected').text());
 		}
 	);
 
@@ -253,17 +254,19 @@ jQuery(function() {
 	});
 	*/
 	$('#slider').slider({
-		min:1, 
-		max:12,
-		value: 6,
+		min:8, 
+		max:16,
+		value: 12,
 		slide: function(event, info) {
-			mouse.setSpeed(16-info.value);
+			speed = (16-info.value)*50;
+			changeSpeed();
+			console.log(speed)
 		}
 	});
 
-	$('#step').click(mouse.step);
-	$('#home').click(mouse.home);
-	$('#reset').click(mouse.reset);
+	// $('#step').click(mouse.step);
+	$('#home').click(drawMaze);
+	$('#reset').click(drawMaze);
 
 	// value on page load
 	$("#home").attr("disabled","disabled");
@@ -284,7 +287,7 @@ jQuery(function() {
 	var maze_sel = $('#maze_sel option:selected').val();
 
 
-	mouse.newMaze($('#start_stop'),maze_sel);
+	//drawMaze(maze_sel);
 	// mouse.loadDriver(driver);
 
 	var maze_height = $("canvas#maze").height() + 8;
