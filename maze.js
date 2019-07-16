@@ -319,7 +319,7 @@ function drawMaze() {
 				ctx.strokeStyle=linecolor;
 			}
 			ctx.stroke();
-			console.log(ctx.strokeStyle)
+			//console.log(ctx.strokeStyle)
 			// east wall
 			ctx.beginPath();
 			ctx.moveTo(px+pCellWidth,py);
