@@ -300,6 +300,7 @@ function drawMaze() {
 	var px;
 	var py;
 	var code;
+	var linecolor = "red";
 	// clear canvas
 	canvas.width = canvas.width;
 
@@ -315,7 +316,7 @@ function drawMaze() {
 			if (code.indexOf("N") !== -1) {
 				ctx.strokeStyle="white";
 			} else {
-				ctx.strokeStyle="blue";
+				ctx.strokeStyle=linecolor;
 			}
 			ctx.stroke();
 			console.log(ctx.strokeStyle)
@@ -326,7 +327,7 @@ function drawMaze() {
 			if (code.indexOf("E") !== -1) {
 				ctx.strokeStyle="white";
 			} else {
-				ctx.strokeStyle="blue";
+				ctx.strokeStyle=linecolor;
 			}
 			ctx.stroke();
 
@@ -337,7 +338,7 @@ function drawMaze() {
 			if (code.indexOf("S") !== -1) {
 				ctx.strokeStyle="white";
 			} else {
-				ctx.strokeStyle="blue";
+				ctx.strokeStyle=linecolor;
 			}
 			ctx.stroke();
 
@@ -348,7 +349,7 @@ function drawMaze() {
 			if (code.indexOf("W") !== -1) {
 				ctx.strokeStyle="white";
 			} else {
-				ctx.strokeStyle="blue";
+				ctx.strokeStyle=linecolor;
 			}
 			ctx.stroke();
 		}
