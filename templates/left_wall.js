@@ -1,9 +1,4 @@
 run = function() {
-    if (allIsHome()) {
-        stop();
-        return;
-    }
-
     // priority: left, fwd, right	
     if (mouse.isPathLeft()) {
         mouse.left();
@@ -14,5 +9,6 @@ run = function() {
         mouse.right();
         mouse.fwd();
     }
+
 }
 
