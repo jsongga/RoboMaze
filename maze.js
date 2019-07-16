@@ -5,8 +5,7 @@ var userInput = document.getElementById("driver_code").value;
 
 
 //var maze_sel = "88us";
-var maze_sel = $('#maze_sel option:selected').val();
-var maze_sel = "./mazes_json/" + maze_sel + ".json";
+var maze_sel;
 var driver;
 var memMaze = [];
 canvas.width = 600;
@@ -27,7 +26,7 @@ var pheight = canvas.height;
 var pCellWidth = pwidth/cWidth;
 var pCellHeight = pheight/cHeight;
 var mRadius = Math.floor(pCellWidth/2) - 5;
-var maze_selp = "zigzag";
+var maze_selp;
 var maze;
 var timerT;
 var i, x, y;
@@ -40,9 +39,9 @@ var attribute = [
 	{x: 0,y: 0,o: "S",c: "Green"},
 	{x: 15,y: 0,o: "W",c: "Blue"},
 	{x: 0,y: 15,o: "E",c: "Yellow"},
-	{x: 15,y: 15,o: "N",c: "Purple"},
-	{x: 7,y: 7,o: "N",c: "Orange"},
-	{x: 5,y: 15,o: "W",c: "Gray"}
+	{x: 15,y: 15,o: "N",c: "Purple"}
+//	{x: 7,y: 7,o: "N",c: "Orange"},
+//	{x: 5,y: 15,o: "W",c: "Gray"}
 ];
 var mouseList = new Array(attribute.length)
 var mouseLogList = new Array(attribute.length)
@@ -63,7 +62,7 @@ function updateMouse(){
 	}
 };
 function loadDriver(driverp){
-	driver = driverp;
+	code = driverp;
 
 	// make sure a maze is loaded.
 	if (maze_sel && maze_sel !== "loading") {
@@ -291,6 +290,10 @@ function start(){
 function stop(){
 	clearInterval(timerT);
 };
+function step(){
+	stop();
+	mouseCode();
+};
 function drawMaze(maze_selp){
 	canvas.width = canvas.width;
 	ctx.lineWidth = 1;
@@ -366,7 +369,7 @@ function mouseCode() {
 		//console.log(mouseLog[i])
 		mouse = mouseList[i];
 		mouseLog = mouseLogList[i];
-		driver.next();
+		run();
 	}//end loop
 	updateMouse();
 };//end func
@@ -374,12 +377,15 @@ for (i = 0; i < attribute.length; i++) {
 	mouseList[i] = new mouse(attribute[i].x,attribute[i].y,attribute[i].o, attribute[i].c);
 	mouseLogList = new Array(attribute.length)
 }
-$("#maze_sel").val(maze_selp).attr('selected','selected');
-$.getJSON(maze_sel, function(json) {
-	maze = json;
-	drawMaze();
-});
-
-
+function changeMaze() {
+	maze_sel = $('#maze_sel option:selected').val();
+	$("#maze_sel").val(maze_sel).attr('selected','selected');
+	maze_sel = "./mazes_json/" + maze_sel + ".json";
+	$.getJSON(maze_sel, function(json) {
+		maze = json;
+		drawMaze();
+	});
+};
+changeMaze()
 
 //	reset();

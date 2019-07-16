@@ -196,7 +196,7 @@ jQuery(function() {
 			var code = $("#driver_code").val();
 			if ($('#start_stop').html() === 'Download') {
 				jQuery.globalEval(code);
-				loadDriver(driver);
+				loadDriver(run);
 				$("#download").html("Download and Reset Mouse");
 				$("#home").attr("disabled","");
 				$("#start_stop").attr("disabled","");
@@ -218,7 +218,10 @@ jQuery(function() {
 
 	$('#maze_sel').change(
 		function(event) {
-			drawMaze($('#maze_sel option:selected').text());
+			drawMaze();
+			maze_sel = ($('#maze_sel option:selected').text());
+			changeMaze();
+			$('#start_stop').html('Start');
 		}
 	);
 
@@ -260,13 +263,30 @@ jQuery(function() {
 		slide: function(event, info) {
 			speed = (16-info.value)*50;
 			changeSpeed();
-			console.log(speed)
+			//console.log(speed)
 		}
 	});
 
-	// $('#step').click(mouse.step);
-	$('#home').click(drawMaze);
-	$('#reset').click(drawMaze);
+	$('#step').click(
+		function(event) {
+			$("#start_stop").html("Start");
+			step();
+		}
+	);
+	$('#home').click(
+		function(event) {
+			drawMaze();
+			$("#start_stop").html("Start");
+			drawMaze();
+		}
+	);
+	$('#reset').click(
+		function(event) {
+			drawMaze();
+			$("#start_stop").html("Start");
+			drawMaze();
+		}
+	);
 
 	// value on page load
 	$("#home").attr("disabled","disabled");

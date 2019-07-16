@@ -1,21 +1,4 @@
-// Depth First Search
-
-// clear the driver object.
-driver = {};
-mouseLog = [];
-// Gets called only when downloaded to the mouse
-// Performs initialization
-driver.load = function() {
-    // Switches to a maze that can be solved
-    // using wall following.
-    //mouse.loadMaze("91japa1");
-}
-
-// Figure out next move.
-// Gets called each iteration of the simulator.
-driver.next = function() {
-    //mouse.memSetData("1");
-//    console.info(mouseLog)
+run = function() {
     if (mouse.isPathLeft() && mouse.memGetVisitedLeft() == false) {
         mouse.left();
         mouse.fwd();
@@ -50,13 +33,9 @@ driver.next = function() {
         case "S":
             mouse.fwd();
             break;
-        }; //end switch
-
-
-    }//end else
+        }; //Switch
+    }//Else
     if (allIsHome()) {
-        //mouse.memPrintData();
-        //mouse.memPrintMaze();
         stop();
         return;
     };
