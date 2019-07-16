@@ -8,8 +8,8 @@ var userInput = document.getElementById("driver_code").value;
 var maze_sel;
 var driver;
 var memMaze = [];
-canvas.width = 600;
-canvas.height = 600;
+// canvas.width = 600;
+// canvas.height = 600;
 
 var NORTH	= 0;
 var EAST	= 1;
@@ -294,67 +294,67 @@ function step(){
 	stop();
 	mouseCode();
 };
-function drawMaze(maze_selp){
+function drawMaze() {
+	var x;
+	var y;
+	var px;
+	var py;
+	var code;
+	// clear canvas
 	canvas.width = canvas.width;
-	ctx.lineWidth = 1;
-	
-		for (y=0;y<cHeight;y++) {
-			for (x=0;x<cWidth;x++) {
-				code = maze[y][x];
-				px = x * pCellWidth;
-				py = y * pCellHeight;
-				// north wall
 
-				if (code.indexOf("N") !== -1) {
-					//ctx.strokeStyle="white";
-				} else {
-					ctx.beginPath();
-					ctx.moveTo(px,py);
-					ctx.lineTo(px+pCellWidth,py);
-					ctx.strokeStyle="red";
-				}
-				ctx.stroke();
-				//east wall
-				
-				if (code.indexOf("E") !== -1) {
-					//ctx.strokeStyle="white";
-				} else {
-					ctx.beginPath();
-					ctx.moveTo(px+pCellWidth,py);
-					ctx.lineTo(px+pCellWidth,py+pCellHeight);
-					ctx.strokeStyle="red";
-				}
-				ctx.stroke();
-
-				// south wall
-				
-				if (code.indexOf("S") !== -1) {
-					//ctx.strokeStyle="white";
-				} else {
-					ctx.beginPath();
-					ctx.moveTo(px+pCellWidth,py+pCellHeight);
-					ctx.lineTo(px,py+pCellHeight);
-					ctx.strokeStyle="red";
-				}
-				ctx.stroke();
-
-				// west wall
-
-				if (code.indexOf("W") !== -1) {
-					//ctx.strokeStyle="white";
-				} else {
-					ctx.beginPath();
-					ctx.moveTo(px,py+pCellHeight);
-					ctx.lineTo(px,py);					
-					ctx.strokeStyle="red";
-				}
-				ctx.stroke();
+	for (y=0;y<cHeight;y++) {
+		for (x=0;x<cWidth;x++) {
+			code = maze[y][x];
+			px = x * pCellWidth;
+			py = y * pCellHeight;
+			// north wall
+			ctx.beginPath();
+			ctx.moveTo(px,py);
+			ctx.lineTo(px+pCellWidth,py);
+			if (code.indexOf("N") !== -1) {
+				ctx.strokeStyle="white";
+			} else {
+				ctx.strokeStyle="blue";
 			}
+			ctx.stroke();
+			console.log(ctx.strokeStyle)
+			// east wall
+			ctx.beginPath();
+			ctx.moveTo(px+pCellWidth,py);
+			ctx.lineTo(px+pCellWidth,py+pCellHeight);
+			if (code.indexOf("E") !== -1) {
+				ctx.strokeStyle="white";
+			} else {
+				ctx.strokeStyle="blue";
+			}
+			ctx.stroke();
+
+			// south wall
+			ctx.beginPath();
+			ctx.moveTo(px+pCellWidth,py+pCellHeight);
+			ctx.lineTo(px,py+pCellHeight);
+			if (code.indexOf("S") !== -1) {
+				ctx.strokeStyle="white";
+			} else {
+				ctx.strokeStyle="blue";
+			}
+			ctx.stroke();
+
+			// west wall
+			ctx.beginPath();
+			ctx.moveTo(px,py+pCellHeight);
+			ctx.lineTo(px,py);
+			if (code.indexOf("W") !== -1) {
+				ctx.strokeStyle="white";
+			} else {
+				ctx.strokeStyle="blue";
+			}
+			ctx.stroke();
 		}
-		ctx.lineWidth = 1
-		mouse.maze = maze;
+	}
 	reset();
-};//end func
+}
 function reset(){
 	for (var i = 0; i < mouseList.length; i++) {
 		mouseList[i].memClear();
