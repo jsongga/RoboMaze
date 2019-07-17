@@ -319,8 +319,8 @@ jQuery(function() {
 	var last_opt = $('#maze_sel option').size();
 	var rand_maze = Math.floor(Math.random()*last_opt+1)
 	$("#maze_sel option").eq(rand_maze).attr('selected','selected');
-	var maze_sel = $('#maze_sel option:selected').val();
-
+	var maze_sel = $('#maze_sel option:selected').text();
+	changeMaze();
 
 	//drawMaze(maze_sel);
 	// mouse.loadDriver(driver);
