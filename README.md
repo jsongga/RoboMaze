@@ -1,7 +1,7 @@
 A HTML5 Micromouse simulator
 ============================
 
-This web app can be used to test Micromouse algorithms in your
+This web app can be used to test Multiple Micromouse coordinated navigation algorithms in your
 web browser.  It exposes a [JavaScript Mouse
 API](https://github.com/bblodget/MicromouseSim/wiki/Mouse-API)
 for controlling a simulated mouse running in a simulated maze.
@@ -66,6 +66,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public
 License along with this program.  If not, see
 [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/)
+
+About the Author
+-------
+John Song (johnsong14306@gmail.com) is a freshman in Johns Creek High School in fall 2019. He enjoys Programming(Python, Javascript/HTML, Swift), Math and Robotics.
 
 Acknowledgement
 -------
