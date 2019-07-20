@@ -37,7 +37,6 @@ run = function() {
     }//Else
     if (allHome()) {
         stop();
-        giveSummary();
         return;
     };
 
