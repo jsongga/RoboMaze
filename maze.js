@@ -34,6 +34,7 @@ var px;
 var py;
 var code;
 var message;
+var messageCount = 0;
 var speed = 200;
 var mouse, mouseLog;
 var attribute = [
@@ -372,12 +373,16 @@ function reset(){
 	}
 };
 function giveSummary() {
-	message = "";
-	for (i = 0; i < attribute.length; i++) {
-		message += "The "+mouseList[i].color+" mouse traveled "+mouseList[i].moves+" moves and discovered "+mouseList[i].newCells+" cells!\n"
+	messageCount++;
+	if (messageCount == 4) {
+		message = "";
+		for (i = 0; i < attribute.length; i++) {
+			message += "The "+mouseList[i].color+" mouse traveled "+mouseList[i].moves+" moves and discovered "+mouseList[i].newCells+" cells!\n"
+		}
+		alert(message)
+		stop();
+		messageCount = 0;
 	}
-	alert(message)
-	stop();
 };
 function mouseCode() {
 	lastLogList = mouseLogList;
