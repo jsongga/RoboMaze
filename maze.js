@@ -33,6 +33,7 @@ var i, x, y;
 var px;
 var py;
 var code;
+var message;
 var speed = 200;
 var mouse, mouseLog;
 var attribute = [
@@ -45,8 +46,9 @@ var attribute = [
 ];
 var mouseList = new Array(attribute.length)
 var mouseLogList = new Array(attribute.length)
+var logLength;
 
-function allIsHome(){
+function allHome(){
 	for (var i = 0; i < mouseList.length; i++) {
 		if (mouseList[i].isHome() == false) {return false;}
 	}
@@ -114,6 +116,8 @@ function mouse(cellX, cellY, dir, color){
 	var animateMove;
 	var animateTurn = "F"
 	var rotatedAmount = 0;
+	this.moves = 0;
+	this.newCells = 1;//The home cell is already discovered
 	this.isHome = function(){
 		return (this.cellX === this.startPosX) && (this.cellY === this.startPosY)
 	}
@@ -360,17 +364,35 @@ function reset(){
 	for (var i = 0; i < mouseList.length; i++) {
 		mouseList[i].memClear();
 		mouseList[i].home();
+		mouseList[i].moves = 0;
+		mouseList[i].newCells = 0;
 		updateMouse();
 		mouseLogList[i] = []
 		stop();
 	}
 };
+function giveSummary() {
+	message = "";
+	for (i = 0; i < attribute.length; i++) {
+		message += "The "+mouseList[i].color+" mouse traveled "+mouseList[i].moves+" moves and discovered "+mouseList[i].newCells+" cells!\n"
+	}
+	alert(message)
+	stop();
+};
 function mouseCode() {
+	lastLogList = mouseLogList;
 	for (var i = 0; i<mouseList.length; i++) {
 		//console.log(mouseLog[i])
 		mouse = mouseList[i];
 		mouseLog = mouseLogList[i];
+		logLength = mouseLog.length;
 		run();
+		if (mouse.isHome() == false){
+			mouse.moves++;
+		}
+		if (mouseLog.length > logLength) {
+			mouse.newCells++;
+		}
 	}//end loop
 	updateMouse();
 };//end func
