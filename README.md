@@ -1,4 +1,4 @@
-RoboMaze web simulator
+RoboMaze Web Simulator
 ============================
 
 This web app can be used to test Multiple Micromouse coordinated navigation algorithms in your
