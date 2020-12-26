@@ -37,7 +37,7 @@ Online Demo
 
 There is an online demo running at 
 
-[https://jsongga.github.io/Micromouse/](https://intelligentdots.github.io/Micromouse/)
+[https://jsongga.github.io/Micromouse/](https://jsongga.github.io/Micromouse/)
 
 Download and run locally
 ------------------------
