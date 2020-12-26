@@ -37,14 +37,14 @@ Online Demo
 
 There is an online demo running at 
 
-[https://intelligentdots.github.io/Micromouse/](https://intelligentdots.github.io/Micromouse/)
+[https://jsongga.github.io/Micromouse/](https://intelligentdots.github.io/Micromouse/)
 
 Download and run locally
 ------------------------
 
 You can download the latest source via
 
-	git clone https://github.com/IntelligentDots/Micromouse.git
+	git clone https://github.com/jsongga/Micromouse.git
 
 Open the file MicromouseSim/index.html in Firefox or Safari.
 Chrome's security model won't allow this application run
